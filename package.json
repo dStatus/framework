@@ -1,6 +1,6 @@
 {
   "name": "@dstatus/framework",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "dSocial's Framework Library For dSocial's Node.js dApp.",
   "main": "index.js",
   "directories": {
