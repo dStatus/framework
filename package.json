@@ -1,0 +1,33 @@
+{
+  "name": "@dstatus/framework",
+  "version": "0.1.1",
+  "description": "dSocial's Framework Library For dSocial's Node.js dApp.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "ava -s test/api.js"
+  },
+  "keywords": [
+    "dweb",
+    "dbrowser",
+    "dsocial"
+  ],
+  "author": "Jared Rice Sr. <jared@benchx.io>",
+  "license": "MIT",
+  "dependencies": {
+    "@dwebs/dsitedb": "~0.1.1",
+    "monotonic-timestamp-base36": "^1.0.0",
+    "slugify-url": "^1.2.0"
+  },
+  "devDependencies": {
+    "@dstatus/vault": "^1.0.0",
+    "ava": "^0.24.0",
+    "tempy": "^0.2.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
