@@ -2,7 +2,7 @@
 
 **Table of Contents**
 
-- [@dsocial/framework](#dsocial-framework)
+- [@dstatus/framework](#dsocial-framework)
   - [Usage](#usage)
     - [Getting started](#getting-started)
     - [Profiles](#profiles)
@@ -40,7 +40,7 @@ Data definitions and methods for dSocial, a Twitter clone built on top of [dPack
 See the [DSocial app](https://github.com/dsocial/dsocial) to see this library in use.
 
 ```js
-const DSocialFramework = require('@dsocial/framework')
+const DSocialFramework = require('@dstatus/framework')
 const dsocial = new DSocialFramework()
 await dsocial.db.open()
 await dsocial.db.indexVault('dweb://bob.com')

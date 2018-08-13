@@ -15,7 +15,7 @@ Platform:
 
 npm manifest: 
   {
-    "name": "@dsocial/framework",
+    "name": "@dstatus/framework",
     "version": "2.2.6",
     "description": "Data definitions and methods for dSocial",
     "main": "index.js",
