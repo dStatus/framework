@@ -1,14 +1,14 @@
 const WebDB = require('@dwebs/dsitedb')
 const assert = require('assert')
-const DSocialFrameworkSocialAPI = require('./lib/social')
-const DSocialFrameworkFeedAPI = require('./lib/feed')
-const DSocialFrameworkNotificationsAPI = require('./lib/notifications')
+const DStatusFrameworkSocialAPI = require('./lib/social')
+const DStatusFrameworkFeedAPI = require('./lib/feed')
+const DStatusFrameworkNotificationsAPI = require('./lib/notifications')
 const {normalizeUrl, toVaultOrigin} = require('./lib/util')
 
 // exported API
 // =
 
-class DSocialFramework {
+class DStatusFramework {
   constructor (opts = {}) {
     this.db = new WebDB(opts.mainIndex || 'dsocial', {
       DWebVault: opts.DWebVault
@@ -16,9 +16,9 @@ class DSocialFramework {
     defineTables(this.db)
     setHooks(this)
     this.userUrl = ''
-    this.social = new DSocialFrameworkSocialAPI(this)
-    this.feed = new DSocialFrameworkFeedAPI(this)
-    this.notifications = new DSocialFrameworkNotificationsAPI(this)
+    this.social = new DStatusFrameworkSocialAPI(this)
+    this.feed = new DStatusFrameworkFeedAPI(this)
+    this.notifications = new DStatusFrameworkNotificationsAPI(this)
   }
 
   setUser (user) {
@@ -34,7 +34,7 @@ class DSocialFramework {
   }
 }
 
-module.exports = DSocialFramework
+module.exports = DStatusFramework
 
 // internal methods
 // =

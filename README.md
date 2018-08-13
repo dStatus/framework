@@ -1,4 +1,4 @@
-# dSocial Framework
+# dStatus Framework
 
 **Table of Contents**
 
@@ -11,7 +11,7 @@
     - [Like / Unlike](#like--unlike)
     - [Notifications](#notifications)
   - [API](#api)
-    - [new DSocialFramework([opts])](#new-frameworkopts)
+    - [new DStatusFramework([opts])](#new-frameworkopts)
     - [dsocial.db](#dsocialdb)
     - [dsocial.setUser(vault)](#dsocialsetuservault)
     - [dsocial.prepareVault(vault)](#dsocialpreparevaultvault)
@@ -35,13 +35,13 @@
     - [dsocial.notifications.listNotifications([opts])](#dsocialnotificationslistnotificationsopts)
     - [dsocial.notifications.countNotifications([opts])](#dsocialnotificationscountnotificationsopts)
 
-Data definitions and methods for dSocial, a Twitter clone built on top of [dPack CLI](https://github.com/dpack/cli). Uses [dSiteDB](https://github.com/dsocial/dsitedb) to read and write records on the dWeb network.
+Data definitions and methods for dStatus, a Twitter clone built on top of [dPack CLI](https://github.com/dpack/cli). Uses [dSiteDB](https://github.com/dsocial/dsitedb) to read and write records on the dWeb network.
 
-See the [DSocial app](https://github.com/dsocial/dsocial) to see this library in use.
+See the [DStatus app](https://github.com/dsocial/dsocial) to see this library in use.
 
 ```js
-const DSocialFramework = require('@dstatus/framework')
-const dsocial = new DSocialFramework()
+const DStatusFramework = require('@dstatus/framework')
+const dsocial = new DStatusFramework()
 await dsocial.db.open()
 await dsocial.db.indexVault('dweb://bob.com')
 await dsocial.social.getProfile('dweb://bob.com') // => ...
@@ -50,20 +50,20 @@ await dsocial.social.getProfile('dweb://bob.com') // => ...
 Schemas:
 
  - [Profile](./schemas/profile.json). The schema for user profiles. A very simple "social media" profile: name, bio, profile pic, and a list of followed users.
- - [Post](./schemas/post.json). The schema for feed posts. Like in Twitter, posts are microblog posts, and can be in reply to other DSocial posts.
- - [Vote](./schemas/vote.json). The schema for votes. In DSocial, only upvotes are used.
+ - [Post](./schemas/post.json). The schema for feed posts. Like in Twitter, posts are microblog posts, and can be in reply to other DStatus posts.
+ - [Vote](./schemas/vote.json). The schema for votes. In DStatus, only upvotes are used.
 
 ## Usage
 
 ### Getting started
 
-DSocialFramework provides a set of methods to be used on top of a [dSiteDB](https://github.com/dsocial/dsitedb) instance.
+DStatusFramework provides a set of methods to be used on top of a [dSiteDB](https://github.com/dsocial/dsitedb) instance.
 
 Setup will always include the following steps:
 
 ```js
 // create the dsocialframework instance
-const dsocial = new DSocialFramework()
+const dsocial = new DStatusFramework()
 // open the dsitedb
 await dsocial.db.open()
 ```
@@ -89,11 +89,11 @@ await dsocial.db.indexFile('dweb://bob.com/posts/1.json')
 When you create a DWEB vault for the local user, you'll want to call `prepareVault()` to setup the folder structure:
 
 ```js
-var alice = DWebVault.create({title: 'Alice', description: 'My DSocial profile'})
+var alice = DWebVault.create({title: 'Alice', description: 'My DStatus profile'})
 await dsocial.prepareVault(alice)
 ```
 
-  - [new DSocialFramework([opts])](#new-dsocialframeworkopts)
+  - [new DStatusFramework([opts])](#new-dsocialframeworkopts)
   - [dsocial.db](#dsocialdb)
   - [dsocial.setUser(vault)](#dsocialsetuservault)
   - [dsocial.prepareVault(vault)](#dsocialpreparevaultvault)
@@ -221,19 +221,19 @@ await dsocial.notifications.listNotifications() /* => [
 
 ## API
 
-### new DSocialFramework([opts])
+### new DStatusFramework([opts])
 
 ```js
-const dsocial = new DSocialFramework()
+const dsocial = new DStatusFramework()
 ```
 
  - `opts` Object.
    - `mainIndex` String. The name (in the browser) or path (in node) of the main indexes. Defaults to `'dsocial'`.
    - `DWebVault` Constructor. The class constructor for dWeb vault instances. If in node, you should specify [@dstatus/vault](https://npm.im/@dstatus/vault).
 
-Create a new `DSocialFramework` instance.
+Create a new `DStatusFramework` instance.
 The `mainIndex` will control where the indexes are stored.
-You can specify different names to run multiple DSocialFramework instances at once.
+You can specify different names to run multiple DStatusFramework instances at once.
 
 ### dsocial.db
 

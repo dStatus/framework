@@ -1,7 +1,7 @@
 const test = require('ava')
 const DWebVault = require('@dstatus/vault')
 const tempy = require('tempy')
-const DSocialFramework = require('../')
+const DStatusFramework = require('../')
 const fs = require('fs')
 
 var dsocial
@@ -19,7 +19,7 @@ test.before('vault creation', async t => {
   ])
 
   // setup dsocialFramework
-  dsocial = new DSocialFramework({mainIndex: tempy.directory(), DWebVault})
+  dsocial = new DStatusFramework({mainIndex: tempy.directory(), DWebVault})
   dsocial.setUser(alice)
   await dsocial.db.open()
   await dsocial.prepareVault(alice)
